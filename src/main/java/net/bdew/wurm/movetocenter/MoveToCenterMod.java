@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 public class MoveToCenterMod implements WurmMod, Initable, PreInitable, ServerStartedListener {
     private static final Logger logger = Logger.getLogger("MoveToCenter");
 
-    static CenterAction moveToCenterAction;
     static CenterAction moveToCornerAction;
 
     public static void logException(String msg, Throwable e) {
@@ -61,9 +60,7 @@ public class MoveToCenterMod implements WurmMod, Initable, PreInitable, ServerSt
 
     @Override
     public void onServerStarted() {
-        moveToCenterAction = new CenterActionTile();
         moveToCornerAction = new CenterActionCorner();
-        ModActions.registerAction(moveToCenterAction);
         ModActions.registerAction(moveToCornerAction);
     }
 }
